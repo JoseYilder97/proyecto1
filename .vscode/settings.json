@@ -1,0 +1,36 @@
+{
+    "workbench.colorCustomizations": {
+        "activityBar.activeBackground": "#acea40",
+        "activityBar.background": "#acea40",
+        "activityBar.foreground": "#15202b",
+        "activityBar.inactiveForeground": "#15202b99",
+        "activityBarBadge.background": "#199be6",
+        "activityBarBadge.foreground": "#e7e7e7",
+        "commandCenter.border": "#15202b99",
+        "sash.hoverBorder": "#acea40",
+        "statusBar.background": "#96df18",
+        "statusBar.foreground": "#15202b",
+        "statusBarItem.hoverBackground": "#77b113",
+        "statusBarItem.remoteBackground": "#96df18",
+        "statusBarItem.remoteForeground": "#15202b",
+        "titleBar.activeBackground": "#96df18",
+        "titleBar.activeForeground": "#15202b",
+        "titleBar.inactiveBackground": "#96df1899",
+        "titleBar.inactiveForeground": "#15202b99"
+    },
+    "peacock.color": "#96DF18",
+    "html-to-css-autocompletion.getSelectorsFromFileTypes": [
+        "html",
+        "php"
+    ],
+    "html-to-css-autocompletion.triggerCharacters": false,
+    "html-to-css-autocompletion.autocompletionFilesScope": "multi-root",
+    "html-to-css-autocompletion.folderNamesToBeIncluded": [
+        ""
+    ],
+    "html-to-css-autocompletion.folderNamesToBeExcluded": [
+        "node_modules"
+    ],
+    "html-to-css-autocompletion.includePattern": "",
+    "html-to-css-autocompletion.excludePattern": ""
+}
