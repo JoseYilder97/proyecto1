@@ -9,7 +9,7 @@ include("../models/head.php");
     </div>
 
     <div class="navbar-right">
-
+        
         <ul>
             <li class="navbar-email">joseyilder1997@gmail.com</li>
             <a class="logins" href="./login.php">login</a>

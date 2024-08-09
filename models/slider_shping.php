@@ -1,4 +1,11 @@
 
+<?php
+include("nab.php");
+include("head.php");
+include("header.php");
+include("shopping.php");
+include("redes_social.php");
+?>
 <aside>
     <div class="product-detail">
         <div class="product-detail-close">
@@ -24,8 +31,23 @@
     </div>
 </aside>
 <script>
-    const spanElement = document.querySelector(".product-detail-close");
-    spanElement.addEventListener("click", function() {
-        window.location.href = "bienvenido.php";
+    document.addEventListener('DOMContentLoaded', function() {
+        // Selecciona todos los elementos con la clase 'material-symbols-outlined'
+        var icons = document.querySelectorAll('.product-detail-close .material-symbols-outlined');
+
+        // Verifica si se encontraron elementos antes de continuar
+        if (icons.length > 0) {
+            // Agrega un evento de clic a cada icono
+            icons.forEach(function(icon) {
+                icon.addEventListener('click', function(event) {
+                    // Evita el comportamiento predeterminado si hay uno (por ejemplo, enviar un formulario)
+                    event.preventDefault();
+                    // Redirecciona a 'index.php'
+                    window.location.href = 'index.php';
+                });
+            });
+        } else {
+            console.log('No se encontraron elementos con la clase material-symbols-outlined.');
+        }
     });
 </script>

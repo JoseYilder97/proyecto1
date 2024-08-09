@@ -1,10 +1,10 @@
 <?php
 
-include("./models/head.php");
-include("./models/nab.php");
-include("./models/shopping.php");
-include("./models/header.php");
-include("./models/redes_social.php");
+include("head.php");
+include("nab.php");
+include("shopping.php");
+include("header.php");
+include("redes_social.php");
 ?>
 <div class="pagina_intermedio">
     <div class="parrafos">

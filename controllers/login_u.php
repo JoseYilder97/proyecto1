@@ -17,14 +17,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $hashedPassword = $usuario['contrasena'];
 
         if (password_verify($contrasena, $hashedPassword)) {
-           
-            echo '<script>alert("has"); location = "bienvenido.php";</script>';
+            // Establecer variables de sesión
+            $_SESSION['usuario'] = $usuario['id']; // Asume que 'id' es el campo único del usuario
+            echo '<script>location = "../models/index.php";</script>';
             exit();
         } else {
-            echo '<script>alert("Contraseña incorrecta"); location = "./login.php";</script>';
+            echo '<script>alert("Contraseña incorrecta"); location = "../models/login.php";</script>';
         }
     } else {
         // No se encontró ningún usuario con el correo ingresado
-        echo '<script>alert("Correo electrónico no registrado"); location = "./login.php";</script>';
+        echo '<script>alert("Correo electrónico no registrado"); location = "../models/login.php";</script>';
     }
 }

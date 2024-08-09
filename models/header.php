@@ -1,4 +1,3 @@
-
 <nav class="navbar">
     <div class="logos">
         <picture>
@@ -14,41 +13,37 @@
                 search
             </span>
         </form>
-
     </div>
     <div class="navbar-right">
-
-        <ul>
-
-            <li class="navbar-email">joseyilder1997@gmail.com</li>
-            <li class="navbar-user">
-
-                <span class="material-symbols-outlined">
-                    person
-                </span>
-
-            </li>
-
-            <li class="navbar-shopping-cart">
-                <span class="material-symbols-outlined">
-                    shopping_cart
-                </span>
-                <div>0</div>
-            </li>
-        </ul>
-
+        <form action="" method="get">
+            <ul>
+                <li class="navbar-email">joseyilder1997@gmail.com</li>
+                <li class="navbar-user">
+                    <span class="material-symbols-outlined">
+                        person
+                    </span>
+                </li>
+                <li class="navbar-shopping-cart">
+                    <span class="material-symbols-outlined">
+                        shopping_cart
+                    </span>
+                    <div>0</div>
+                </li>
+            </ul>
+        </form>
     </div>
 
 </nav>
-<div class="inactive">
-    <ul>
-        <li><a href="bienvenido.php">Mi Cuenta </a></li>
+<form action="" method="get">
+    <div class="inactive">
+        <ul>
+            <li><a href="bienvenido.php">Mi Cuenta </a></li>
+            <li><a href="ajuste_cuentas.php">Configuración de cuenta</a></li>
+            <li><a href="cerrar_sesion.php">Cerrar Seción</a></li>
+        </ul>
+    </div>
 
-        <li><a href="salir.php">Cerrar Seción</a></li>
-
-    </ul>
-</div>
-
+</form>
 
 <script>
     var spanElements = document.querySelector(".navbar-user");

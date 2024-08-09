@@ -1,9 +1,9 @@
 <?php
-include("./models/nab.php");
-include("./models/head.php");
-include("./models/header.php");
-include("./models/shopping.php");
-include("./models/redes_social.php");
+include("nab.php");
+include("head.php");
+include("header.php");
+include("shopping.php");
+include("redes_social.php");
 ?>
 <div class="citas">
     <div class="citas_medicas">
@@ -19,6 +19,5 @@ include("./models/redes_social.php");
 
 </div>
 <?php
-
 include("footer.php");
 ?>

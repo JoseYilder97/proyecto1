@@ -14,7 +14,7 @@
   --color--secondary: rgb(249, 235, 238);
   --color--primary: rgb(198, 208, 210);
   --color--black: rgb(0, 0, 0);
-
+  --color--hover--white: #f0f0f0;
   --transparent-shop: rgba(255, 255, 255, 0.569);
   --transparent: rgba(0, 0, 0, 57);
   --transparent-shop-add: rgba(206, 203, 203, 0.42);
@@ -47,14 +47,56 @@
   --ms: 16px;
   --md: 18px;
   --lg: 20px;
+  --background-gradia: -webkit-linear-gradient(
+    to right,
+    #1294a4,
+    #0072a1,
+    #69abac,
+    #0068a1
+  );
+  --background: linear-gradient(to right, #1294a4, #0072a1, #69abac, #0068a1);
 }
 html {
   font-size: 62.5%;
+  -ms-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+body {
 
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  padding: 0;
+}
+body::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url(../images/dog5.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  z-index: -2;
+
+}
+body::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(0, 0, 0, 0.5);
+  z-index: -1;
+
+}
 /* header carrucel */
 .carousel {
-  width: 90%;
+  width: 70%;
   height: 70vh;
   top: 0;
   margin: 0 auto;
@@ -68,15 +110,26 @@ html {
   height: 100%;
   object-fit: cover;
 }
-
-.carousel-indicators {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
+.caruucel_1{
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: var(--color--white);
+}
+.carousel-indicators {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin-right: 15%;
+  margin-bottom: 1rem;
+  margin-left: 15%;
+  list-style: none;
 }
 
 .carousel-indicators button {
@@ -149,15 +202,16 @@ html {
   display: flex;
   align-items: center;
 }
-.items-header span {
+.items-header > span {
   display: none;
   color: var(--color--white);
   font-size: 30px;
   cursor: pointer;
 }
+
 .items_head {
   height: 100%;
-  width: 70%;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -359,9 +413,11 @@ html {
 /* ------------------este es el que lleva a registrate usuarios--------------------- */
 
 .items_main-principal_solo {
-  display: flex;
+  display: grid;
   justify-content: center;
   align-items: center;
+  /* grid-template-columns: repeat(4, 25%); */
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   width: 100%;
   margin: auto;
   height: 100vh;
@@ -371,24 +427,69 @@ html {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url(../images/dog5.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
   padding: 0;
   z-index: 100;
 }
-.items_main-principal_solo .registrate_administrador {
-  width: 35%;
-  height: min-content;
+.text_welcome_software {
+  display: grid;
+  grid-column: 6 / 13;
+  grid-row: 1;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  margin: auto;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0;
+  z-index: 100;
+}
+.text_welcome_software h1,
+h2 {
+  color: var(--color--white);
+  position: relative;
+  line-height: 1;
+}
+.text_welcome_software h1 {
+  font-weight: 300;
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+}
+.items_main-principal_solo .registrate_administrador{
+  display: grid;
+  grid-column: 1/6;
+  width: 100%;
+  height: 100%;
   padding: 10px 0;
   text-align: center;
   margin: auto;
   position: relative;
   box-shadow: 7px 13px 37px var(--box-shadow);
   background-color: var(--color--formulary);
-  border-radius: 20px;
+}
+.registrate_administrador .logins {
+  display: grid;
+  grid-column: 1/6;
+  width: 90%;
+  padding: 10px 0;
+  text-align: center;
+  margin: auto;
+  align-items: center;
+  border-radius: 15px;
   border: solid var(--color--principal) 2px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+.registrate_administrador form {
+  position: relative;
+  top: 8px;
 }
 .items_main-principal_solo .registrate_administrador h4 {
   text-align: center;
@@ -470,50 +571,19 @@ html {
 }
 
 /*-----------------------login en  usuarios ------------*/
-.items_main-principal_logins > .items_main-principal_solo {
+
+.items_main-principal_logins {
   display: flex;
   justify-content: center;
   width: 100%;
   margin: auto;
-  height: 81vh;
+  height: 100vh;
   position: relative;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url(../images/dog5.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  padding: 90px 0;
+
 }
-.items_main-principal_logins
-  > .items_main-principal_solo
-  > .registrate_administrador {
-  width: 30%;
-  height: min-content;
-  padding: 10px 0;
-  text-align: center;
-  margin: auto;
-  position: relative;
-  background-color: var(--color--formulary);
-  border-radius: 20px;
-  border: solid var(--color--principal) 2px;
-}
-.items_main-principal_logins
-  > .items_main-principal_solo
-  .registrate_administrador {
-  width: 33%;
-  height: min-content;
-  padding: 10px 0;
-  text-align: center;
-  margin: auto;
-  position: relative;
-  background-color: var(--color--formulary);
-  border-radius: 20px;
-  border: solid var(--color--principal) 2px;
-}
-.registrate_administrador .login {
+
+
+.registrate_administrador .logina {
   width: 70%;
   margin: 0 auto;
   font-size: 18px;
@@ -802,23 +872,62 @@ h4 {
 }
 .items-header .nav nav {
   margin: 0 auto;
+  height: 100%;
+  align-items: center;
+  display: flex;
 }
 .items-header .nav nav ul {
   list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .items-header .nav nav ul li {
   list-style: none;
-  display: inline-block;
+  display: flex;
   padding: 0 25px;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.items-header .nav nav ul li:hover {
+  background-color: rgba(255, 255, 255, 0.236);
+}
+.items-header .nav nav ul li span {
+  display: inline-block;
+  top: 0;
+  position: relative;
+  justify-items: center;
+  font-weight: bold;
+  color: var(--color--white);
 }
 
-.items-header .nav nav ul li a:hover {
-  color: var(--color--luminous-vivid-amber);
+ .indicador{
+  width: 200px;
+  height: 7px;
+  background: #113cfc;
+  position: absolute;
+  bottom: 0;
+  transition: .3s ease-out all;
+  transform: translate(-500px);
+  -webkit-transition: .3s ease-out all;
+  -moz-transition: .3s ease-out all;
+  -ms-transition: .3s ease-out all;
+  -o-transition: .3s ease-out all;
+  -webkit-transform: translate(-500px);
+  -moz-transform: translate(-500px);
+  -ms-transform: translate(-500px);
+  -o-transform: translate(-500px);
 }
 .items-header .nav nav ul li a {
   font-size: 1.6rem;
   text-decoration: none;
   font-weight: 600;
+  padding: 0 0 0 10px;
   color: var(--color--white);
   font-weight: bold;
 }
@@ -837,7 +946,6 @@ h4 {
   width: 100%;
   display: flex;
   justify-content: space-between;
-
   background-color: var(--color--formulary);
   border-bottom: 1px solid var(--very-light-pink);
 }
@@ -942,7 +1050,7 @@ h4 {
   border: solid 1px var(--color--principal);
   outline: none;
 }
-.navbar form span {
+.navbar form > span {
   left: 20px;
   color: var(--color--principal);
   display: flex;
@@ -1087,14 +1195,13 @@ h4 {
 
 .inactive {
   display: none;
-
-  width: 100px;
+  width: 200px;
   height: auto;
   background-color: var(--color--formulary);
   border: 1px solid var(--color--black);
   border-radius: 6px;
   padding: 20px 20px 0 20px;
-  right: 80px;
+  right: 70px;
   position: absolute;
   float: right;
   top: 90px;
@@ -1151,6 +1258,13 @@ h4 {
 }
 .items_head .nav_nav .menu-nav ul {
   list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .items_head .nav_nav .menu-nav ul li {
   list-style: none;
@@ -1196,4 +1310,112 @@ h4 {
   .items_head .nav_nav {
     display: none;
   }
+}
+
+/* Recuperar clave password */
+.items-header-recuperar {
+  grid-area: items-header;
+  width: 100%;
+  margin: 0 auto;
+  z-index: 1000;
+  height: 75px;
+  background-color: var(--color--white);
+  box-shadow: 0px 5px 5px var(--box-shadow);
+  display: flex;
+  align-items: center;
+  color: var(--color--pale-cyan-blue);
+}
+.items-header-recuperar > form {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.items-header-recuperar .items_head h3 {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+}
+.items-header-recuperar .items_head nav {
+  margin: 0 auto;
+  height: 100%;
+  align-items: center;
+  display: flex;
+}
+.items-header-recuperar .material-symbols-outlined {
+}
+.items-header-recuperar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+.items-header-recuperar ul li {
+  list-style: none;
+  display: flex;
+  padding: 0 25px;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.items-header-recuperar ul li:hover {
+  background-color: var(--color--hover--white);
+}
+.items-header-recuperar ul li a:hover {
+  text-decoration: none;
+}
+.items-header-recuperar ul li span {
+  font-size: 30px;
+  top: 0;
+  cursor: pointer;
+  position: relative;
+}
+.items-header-recuperar ul li a {
+  display: inline-block;
+  padding: 0 5px;
+  position: relative;
+  font-size: 1.5rem;
+  color: var(--color--pale-cyan-blue);
+  text-decoration: none;
+}
+
+.formulario-container {
+  display: flex;
+  height: auto;
+  position: relative;
+  width: 100%;
+  flex-direction: column;
+}
+
+/* boostrap */
+
+.gradient-custom-2 {
+  /* fallback for old browsers */
+  background: #fccb90;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: var(--background-gradia);
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: var(--background-gradiant);
+}
+
+@media (min-width: 768px) {
+  .gradient-form {
+    height: 100vh !important;
+  }
+}
+@media (min-width: 769px) {
+  .gradient-custom-2 {
+    border-top-right-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+  }
+}
+
+.gradient-form {
+  background-color: #eee;
+  display: none; /* Oculta inicialmente el formulario */
 }
