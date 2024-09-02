@@ -44,23 +44,3 @@ carouselIndicators.forEach((indicator, index) => {
 // Agrega click listeners a los botones de navegación
 prevButton.addEventListener('click', showPreviousImage)
 nextButton.addEventListener('click', showNextImage)
-
-function torreDeHanoi(n, from, to, aux) {
-  // Caso base: si solo queda un disco, lo movemos directamente al destino
-  if (n === 1) {
-      console.log(`Mover disco 1 de ${from} a ${to}`);
-      return;
-  }
-  
-  // Paso 1: Mover n-1 discos de 'from' a 'aux', usando 'to'
-  torreDeHanoi(n - 1, from, aux, to);
-  
-  // Paso 2: Mover el disco restante de 'from' a 'to'
-  console.log(`Mover disco ${n} de ${from} a ${to}`);
-  
-  // Paso 3: Mover los n-1 discos que estaban en 'aux' a 'to', usando 'from'
-  torreDeHanoi(n - 1, aux, to, from);
-}
-
-// Llamada inicial para iniciar el juego con 3 discos
-torreDeHanoi(3, 'A', 'C', 'B');

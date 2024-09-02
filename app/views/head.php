@@ -44,6 +44,7 @@
 </head>
 
 <body>
+    <script src="/public/javascript/fronten.js" async></script>
     <script src="/public/javascript/index.js" async></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 

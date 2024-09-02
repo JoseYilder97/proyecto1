@@ -40,7 +40,7 @@ include("head.php");
                     // Evita el comportamiento predeterminado si hay uno (por ejemplo, enviar un formulario)
                     event.preventDefault();
                     // Redirecciona a 'index.php'
-                    window.location.href = 'index.php';
+                    window.location.href = '../../index.php';
                 });
             });
         } else {

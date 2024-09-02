@@ -76,7 +76,7 @@ include("head.php");
 
         userIcon.addEventListener('click', function() {
 
-            window.location.href = '../../index.php';
+            window.location.href = '/app/views/login_usuario.php';
         });
     });
 </script>
