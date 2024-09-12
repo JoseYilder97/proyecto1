@@ -68,3 +68,32 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const agendaLink = document.getElementById('agenda');
+  const dashboardLink = document.getElementById('dashboard');
+  const agendaSeviciosDiv = document.querySelector('.agenda_sevicios');
+  const cardBox = document.querySelector('.cardBox');
+  const details = document.querySelector('.details');
+
+  agendaLink.addEventListener('click', function(e) {
+    e.preventDefault();
+    mostrarContenido(agendaSeviciosDiv, cardBox, details);
+  });
+
+  dashboardLink.addEventListener('click', function(e) {
+    e.preventDefault();
+    mostrarContenido(cardBox, details, agendaSeviciosDiv);
+  });
+
+  function mostrarContenido(mostrar, ocultar1, ocultar2) {
+    if (mostrar.style.display === 'none') {
+      mostrar.style.display = 'block';
+      ocultar1.style.display = 'none';
+      ocultar2.style.display = 'none';
+    } else {
+      mostrar.style.display = 'none';
+    }
+  }
+});

@@ -1,4 +1,4 @@
-<?php    
+<?php
 include("head.php");
 include("../models/mensaje_error.php");
 ?>
@@ -6,16 +6,14 @@ include("../models/mensaje_error.php");
 
 
 if (isset($_SESSION['last_page']) && $_SERVER['REQUEST_URI'] != $_SESSION['last_page']) {
-
-
 }
 
 $_SESSION['last_page'] = $_SERVER['REQUEST_URI'];
 
 if (!isset($_SESSION['usuario'])) {
     // Redirigir al usuario a la página de inicio de sesión si no está iniciada la sesión
-   session_start(); 
-   $_SESSION['mensaje'] = "Por favor inicie sección";
+    session_start();
+    $_SESSION['mensaje'] = "Por favor inicie sección";
     $_SESSION['icono'] = 'error';
     header('Location: ../views/login_usuario.php');
     exit;
@@ -34,7 +32,7 @@ if (!isset($_SESSION['usuario'])) {
             <ul>
 
 
-                <li>
+            <li id="dashboard">
                     <a href="#">
                         <span class="icon">
                             <ion-icon name="home-outline"></ion-icon>
@@ -52,7 +50,7 @@ if (!isset($_SESSION['usuario'])) {
                     </a>
                 </li>
 
-                <li>
+                <li id="agenda">
                     <a href="#">
                         <span class="icon">
                             <span class="material-symbols-outlined">
@@ -124,7 +122,7 @@ if (!isset($_SESSION['usuario'])) {
                     </li>
 
                     <li>
-                        <a href="#">
+                        <a href="../models/cerrar_sesion.php">
                             <span class="icon">
                                 <ion-icon name="log-out-outline"></ion-icon>
                             </span>
@@ -193,6 +191,65 @@ if (!isset($_SESSION['usuario'])) {
                 </div>
             </div>
             <!-- ======================= fin perfil ================== -->
+            <!-- ======================= Inicio citas ================== -->
+            <div class="agenda_sevicios">
+                <h1>Registro de Cita</h1>
+                <div class="sevicios">
+                    <div class="editar_servios">
+
+                        <div class="icon_servicios">
+                            <ion-icon name="eye-outline"></ion-icon>
+                        </div>
+                        <span>Agregar</span>
+                    </div>
+                    <div class="editar_servios">
+
+                        <div class="icon_servicios">
+                            <ion-icon name="cart-outline"></ion-icon>
+                        </div>
+                        <span>Actualizar</span>
+                    </div>
+                    <div class="editar_servios">
+
+                        <div class="icon_servicios">
+                            <ion-icon name="chatbubbles-outline"></ion-icon>
+                        </div>
+                        <span>Consultar</span>
+                    </div>
+                    <div class="editar_servios">
+
+                        <div class="icon_servicios">
+                            <ion-icon name="cash-outline"></ion-icon>
+                        </div>
+                        <span>Borrar</span>
+                    </div>
+                </div>
+                <form action="procesar_cita.php" method="post">
+                    <label for="paciente_id">ID del Paciente:</label>
+                    <input type="text" id="paciente_id" name="paciente_id">
+                    <br>
+                    <label for="usuario">Tipo de citas</label>
+                    <input list="lista_servcios" id="usuario" name="usuario" value="" required placeholder="Usuario" class="input">
+                    <datalist id="lista_servcios">
+                        <option value="Médico"></option>
+                        <option value="Control"></option>
+                        <option value="Peluqueriam y Baño"></option>
+                        <option value="Baño"></option>
+                    </datalist>
+                    <br>
+                    <label for="fecha">Fecha:</label>
+                    <input type="date" id="fecha" name="fecha">
+                    <br>
+                    <label for="hora">Hora:</label>
+                    <input type="time" id="hora" name="hora">
+                    <br>
+                    <label for="nota">Nota:</label>
+                    <textarea id="nota" name="nota" rows="4" cols="50"></textarea>
+                    <br>
+                    <input type="submit" value="Registrar Cita">
+                </form>
+            </div>
+
             <!-- ======================= Cards ================== -->
             <div class="cardBox">
                 <div class="card">
@@ -233,165 +290,8 @@ if (!isset($_SESSION['usuario'])) {
                 </div>
             </div>
 
-            <!-- ================ Order Details List ================= -->
-            <div class="details">
-                <div class="recentOrders">
-                    <div class="cardHeader">
-                        <h2>Recent Orders</h2>
-                        <a href="#" class="btn">View All</a>
-                    </div>
 
-                    <table>
-                        <thead>
-                            <tr>
-                                <td>Name</td>
-                                <td>Price</td>
-                                <td>Payment</td>
-                                <td>Status</td>
-                            </tr>
-                        </thead>
 
-                        <tbody>
-                            <tr>
-                                <td>Star Refrigerator</td>
-                                <td>$1200</td>
-                                <td>Paid</td>
-                                <td><span class="status delivered">Delivered</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Dell Laptop</td>
-                                <td>$110</td>
-                                <td>Due</td>
-                                <td><span class="status pending">Pending</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Apple Watch</td>
-                                <td>$1200</td>
-                                <td>Paid</td>
-                                <td><span class="status return">Return</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Addidas Shoes</td>
-                                <td>$620</td>
-                                <td>Due</td>
-                                <td><span class="status inProgress">In Progress</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Star Refrigerator</td>
-                                <td>$1200</td>
-                                <td>Paid</td>
-                                <td><span class="status delivered">Delivered</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Dell Laptop</td>
-                                <td>$110</td>
-                                <td>Due</td>
-                                <td><span class="status pending">Pending</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Apple Watch</td>
-                                <td>$1200</td>
-                                <td>Paid</td>
-                                <td><span class="status return">Return</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>Addidas Shoes</td>
-                                <td>$620</td>
-                                <td>Due</td>
-                                <td><span class="status inProgress">In Progress</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- ================= New Customers ================ -->
-                <div class="recentCustomers">
-                    <div class="cardHeader">
-                        <h2>Recent Customers</h2>
-                    </div>
-
-                    <table>
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>David <br> <span>Italy</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Amit <br> <span>India</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>David <br> <span>Italy</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Amit <br> <span>India</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>David <br> <span>Italy</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Amit <br> <span>India</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>David <br> <span>Italy</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Amit <br> <span>India</span></h4>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
         </div>
     </div>
 

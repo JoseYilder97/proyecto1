@@ -8,27 +8,27 @@ include("../models/mensaje_error.php");
             <h4 class="h4">Login</h4>
             <form action="../models/registro_guardar.php" method="post">
                 <label for="nombre">
-                <span class="material-symbols-outlined">
-person
-</span>
+                    <span class="material-symbols-outlined">
+                        person
+                    </span>
                     <input type="text" id="nombre" name="nombre" value="" requeired placeholder="Nombre Nompleto" class="input">
                 </label>
                 <label for="apellido">
-                <span class="material-symbols-outlined">
-person
-</span>
+                    <span class="material-symbols-outlined">
+                        person
+                    </span>
                     <input type="text" id="apellido" name="apellido" value="" required placeholder="Apellido" class="input">
                 </label>
                 <label for="email">
-                <span class="material-symbols-outlined">
+                    <span class="material-symbols-outlined">
                         mail
                     </span>
                     <input type="email" id="email" name="email" value="" required placeholder="Email" class="input">
                 </label>
                 <label for="usuario">
-                <span class="material-symbols-outlined">
-person
-</span>
+                    <span class="material-symbols-outlined">
+                        person
+                    </span>
                     <input list="cursos" id="usuario" name="usuario" value="" required placeholder="Usuario" class="input">
                     <datalist id="cursos">
                         <option value="veterinario"></option>
