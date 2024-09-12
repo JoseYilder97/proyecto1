@@ -19,11 +19,11 @@ include("head.php");
                 <div class="nav">
                     <nav>
                         <ul>
-                            <li><a href="../../index.php"><span class="material-symbols-outlined">home</span>Inicio</a></li>
-                            <li><a href="/app/views/medicas.php"><span class="material-symbols-outlined">calendar_add_on</span>Citas Medicas</a></li>
-                            <li><a href="/app/views/somos.php"><span class="material-symbols-outlined">group_add</span>Quienes Somos</a></li>
-                            <li><a href="/app/views/slider_shping.php"><span class="material-symbols-outlined">add_business</span>Productos</a></li>
-                            <li><a href="/app/views/slider_shping.php"><span class="material-symbols-outlined">call</span>Contactenos</a></li>
+                            <li class="nav-item"><a href="../../index.php" class="nav-link active" data-toggle="tab" href="#" role="tab" ><span class="material-symbols-outlined">home</span>Inicio</a></li>
+                            <li class="nav-item"><a href="/app/views/medicas.php" class="nav-link" data-toggle="tab" href="#" role="tab" ><span class="material-symbols-outlined">calendar_add_on</span>Citas Medicas</a></li>
+                            <li class="nav-item"><a href="/app/views/somos.php" class="nav-link" data-toggle="tab" href="#" role="tab" ><span class="material-symbols-outlined">group_add</span>Quienes Somos</a></li>
+                            <li class="nav-item"><a href="/app/views/slider_shping.php" class="nav-link" data-toggle="tab" href="#" role="tab" ><span class="material-symbols-outlined">add_business</span>Productos</a></li>
+                            <li class="nav-item"><a href="/app/views/slider_shping.php" class="nav-link" data-toggle="tab" href="#" role="tab" ><span class="material-symbols-outlined">call</span>Contactenos</a></li>
                         </ul>
                     </nav>
                     <form action="" method="post">
@@ -80,3 +80,24 @@ include("head.php");
         });
     });
 </script>
+<!-- <script>
+    
+    document.addEventListener('DOMContentLoaded', function() {
+    const navItems = document.querySelectorAll('.items-header .nav nav ul li');
+    
+    navItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Eliminar la clase active de todos los items
+            navItems.forEach(i => i.classList.remove('active'));
+            
+            // Agregar la clase active al item seleccionado
+            this.classList.add('active');
+            
+            // Actualizar el contenido según sea necesario
+            updateContent(this);
+        });
+    });
+});
+</script> -->

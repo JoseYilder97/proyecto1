@@ -191,7 +191,7 @@ box-shadow: 0px 5px 5px var(--box-shadow);
 }
 .items-header .nav nav {
   margin: 0 auto;
-  height: 6.0rem;
+  height:100%;
   align-items: center;
   display: flex;
 }
@@ -213,9 +213,29 @@ box-shadow: 0px 5px 5px var(--box-shadow);
   gap: 3rem;
   justify-content: center;
   align-items: center;
+  transition: color 0.3s ease, background-color 0.3s ease;
 }
 .items-header .nav nav ul li:hover {
   background-color: rgba(255, 255, 255, 0.236);
+}
+
+
+.items-header .nav nav ul li.active {
+  background-color: rgba(255, 255, 255, 0.236);
+}
+
+/* .items-header .nav nav ul li.active a {
+} */
+
+.items-header .nav nav ul li.active::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background-color: var(--color--principal);
+  z-index: -1;
 }
 .items-header .nav nav ul li span {
   display: flex;

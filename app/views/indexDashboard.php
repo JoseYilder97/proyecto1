@@ -1,68 +1,65 @@
 <?php
-include("head.php");
-include("../models/mensaje_error.php");
+
+include_once("../models/sesion_ectiva.php");
 ?>
 <?php
 
+include("../models/mensaje_error.php");
 
-if (isset($_SESSION['last_page']) && $_SERVER['REQUEST_URI'] != $_SESSION['last_page']) {
-}
 
-$_SESSION['last_page'] = $_SERVER['REQUEST_URI'];
-
-if (!isset($_SESSION['usuario'])) {
-    // Redirigir al usuario a la página de inicio de sesión si no está iniciada la sesión
-    session_start();
-    $_SESSION['mensaje'] = "Por favor inicie sección";
-    $_SESSION['icono'] = 'error';
-    header('Location: ../views/login_usuario.php');
-    exit;
-}
 ?>
 
-<body class="body">
+
+<?php
+include("head.php");
+
+
+
+?>
+
+<body class="body" id="body">
     <!-- =============== Navigation ================ -->
-    <div class="container">
+    <div class="container_dash">
         <div class="navigation">
             <div class="logo">
                 <img src="/public/images/logos.png" alt="" srcset="">
                 <a class="a" href="">Veterinaria</a>
             </div>
-
             <ul>
-
-
-            <li id="dashboard">
-                    <a href="#">
+                <li id="dashboard">
+                    <a href="#" onclick="showSection('tablero')">
                         <span class="icon">
-                            <ion-icon name="home-outline"></ion-icon>
+                            <span class="material-symbols-outlined">
+                                home
+                            </span>
                         </span>
-                        <span class="title">Dashboard</span>
+                        <span class="title">Tablero</span>
+                        <span class="material-symbols-outlined">
                     </a>
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="#" onclick="showSection('usuarios')">
                         <span class="icon">
-                            <ion-icon name="people-outline"></ion-icon>
+                            <span class="material-symbols-outlined">
+                                group
+                            </span>
                         </span>
-                        <span class="title">Administración</span>
+                        <span class="title">Usuarios</span>
                     </a>
                 </li>
-
                 <li id="agenda">
-                    <a href="#">
+                    <a href="#" onclick="showSection('citas')">
                         <span class="icon">
                             <span class="material-symbols-outlined">
                                 calendar_month
                             </span>
                         </span>
-                        <span class="title">Agenda</span>
+                        <span class="title">Citas</span>
                     </a>
                 </li>
-
                 <li>
-                    <a href="#">
+                    <a href="#" onclick="showSection('consultorio')">
                         <span class="icon">
                             <span class="material-symbols-outlined">
                                 medical_services
@@ -72,76 +69,105 @@ if (!isset($_SESSION['usuario'])) {
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#" onclick="showSection('servicios')">
                         <span class="icon">
                             <span class="material-symbols-outlined">
                                 local_hospital
                             </span>
                         </span>
-                        <span class="title">Hospital</span>
+                        <span class="title">Servicios</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#" onclick="showSection('factura')">
                         <span class="icon">
                             <span class="material-symbols-outlined">
-                                monitoring
+                                receipt_long
                             </span>
                         </span>
-                        <span class="title">Informes</span>
+                        <span class="title">Factura</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#" onclick="showSection('cliente')">
+                        <span class="icon">
+                            <span class="material-symbols-outlined">
+                                groups
+                            </span>
+                        </span>
+                        <span class="title">Clientes</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" onclick="showSection('mascota')">
+                        <span class="icon">
+                            <span class="material-symbols-outlined">
+                                pets
+                            </span>
+                        </span>
+                        <span class="title">Mascota</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" onclick="showSection('productos')">
                         <span class="icon">
                             <span class="material-symbols-outlined">
                                 add_business
                             </span>
                         </span>
-                        <span class="title">Tienda</span>
+                        <span class="title">Productos</span>
                     </a>
                 </li>
-
+                <li>
+                    <a href="#" onclick="showSection('provedor')">
+                        <span class="icon">
+                            <span class="material-symbols-outlined">
+                                inventory
+                            </span>
+                        </span>
+                        <span class="title">Proveedor</span>
+                    </a>
+                </li>
                 <div class="li">
                     <li>
-                        <a href="#">
+                        <a href="#" onclick="showSection('usuarios')">
                             <span class="icon">
-                                <ion-icon name="settings-outline"></ion-icon>
+                                <span class="material-symbols-outlined">
+                                    settings
+                                </span>
                             </span>
                             <span class="title">Settings</span>
                         </a>
                     </li>
-
                     <li>
-                        <a href="#">
+                        <a href="#" onclick="showSection('password')">
                             <span class="icon">
-                                <ion-icon name="lock-closed-outline"></ion-icon>
+                                <span class="material-symbols-outlined">
+                                    lock
+                                </span>
                             </span>
                             <span class="title">Password</span>
                         </a>
                     </li>
-
                     <li>
                         <a href="../models/cerrar_sesion.php">
                             <span class="icon">
-                                <ion-icon name="log-out-outline"></ion-icon>
+                                <span class="material-symbols-outlined">
+                                    exit_to_app
+                                </span>
                             </span>
                             <span class="title">Sign Out</span>
                         </a>
                     </li>
                 </div>
-
             </ul>
-
         </div>
-
         <!-- ========================= Main ==================== -->
-        <div class="main">
-            <div class="topbar">
+        <div class="main" id="main">
+            <div class="topbar_main">
                 <div class="toggle">
                     <ion-icon name="menu-outline"></ion-icon>
                 </div>
-
                 <div class="search">
                     <form action="" method="POST">
                         <label for="nombre">
@@ -153,14 +179,14 @@ if (!isset($_SESSION['usuario'])) {
                     </form>
                 </div>
                 <div class="perfil_usuario">
-                    <div class="theme_btn">
+                    <!--                     <div class="theme_btn">
                         <span class="material-symbols-outlined active">
                             light_mode
                         </span>
                         <span class="material-symbols-outlined">
                             dark_mode
                         </span>
-                    </div>
+                    </div> -->
                     <div class="perfil-user">
                         <div class="perfil_photo">
                             <img src="/public/images//profile-icon.png" alt="dog" srcset="Perfil persona">
@@ -172,7 +198,6 @@ if (!isset($_SESSION['usuario'])) {
                     </div>
                 </div>
             </div>
-
             <!-- ======================= perfil ================== -->
             <div class="profile">
                 <div class="profile-menu">
@@ -180,7 +205,7 @@ if (!isset($_SESSION['usuario'])) {
                         <img src="/public/images//profile-icon.png" alt="Perfil">
                         <h3>Jose</h3>
                     </div>
-                    <div class="dropdown-menu" id="dropdownMenu">
+                    <div class="dropdown-menus" id="dropdownMenu">
                         <ul>
                             <li><a href="#"><span class="material-symbols-outlined">Account_Circle</span>Ver Perfil</a></li>
                             <li><a href="#"><span class="material-symbols-outlined">Settings</span>Configuración</a></li>
@@ -191,114 +216,30 @@ if (!isset($_SESSION['usuario'])) {
                 </div>
             </div>
             <!-- ======================= fin perfil ================== -->
-            <!-- ======================= Inicio citas ================== -->
-            <div class="agenda_sevicios">
-                <h1>Registro de Cita</h1>
-                <div class="sevicios">
-                    <div class="editar_servios">
 
-                        <div class="icon_servicios">
-                            <ion-icon name="eye-outline"></ion-icon>
-                        </div>
-                        <span>Agregar</span>
-                    </div>
-                    <div class="editar_servios">
 
-                        <div class="icon_servicios">
-                            <ion-icon name="cart-outline"></ion-icon>
-                        </div>
-                        <span>Actualizar</span>
-                    </div>
-                    <div class="editar_servios">
-
-                        <div class="icon_servicios">
-                            <ion-icon name="chatbubbles-outline"></ion-icon>
-                        </div>
-                        <span>Consultar</span>
-                    </div>
-                    <div class="editar_servios">
-
-                        <div class="icon_servicios">
-                            <ion-icon name="cash-outline"></ion-icon>
-                        </div>
-                        <span>Borrar</span>
-                    </div>
-                </div>
-                <form action="procesar_cita.php" method="post">
-                    <label for="paciente_id">ID del Paciente:</label>
-                    <input type="text" id="paciente_id" name="paciente_id">
-                    <br>
-                    <label for="usuario">Tipo de citas</label>
-                    <input list="lista_servcios" id="usuario" name="usuario" value="" required placeholder="Usuario" class="input">
-                    <datalist id="lista_servcios">
-                        <option value="Médico"></option>
-                        <option value="Control"></option>
-                        <option value="Peluqueriam y Baño"></option>
-                        <option value="Baño"></option>
-                    </datalist>
-                    <br>
-                    <label for="fecha">Fecha:</label>
-                    <input type="date" id="fecha" name="fecha">
-                    <br>
-                    <label for="hora">Hora:</label>
-                    <input type="time" id="hora" name="hora">
-                    <br>
-                    <label for="nota">Nota:</label>
-                    <textarea id="nota" name="nota" rows="4" cols="50"></textarea>
-                    <br>
-                    <input type="submit" value="Registrar Cita">
-                </form>
+            <div class="content-container">
+                <div class="tablero-active" id="tablero-active"></div>
+                <div class="usuarios-active" id="usuarios-active"></div>
+                <div class="citas-active" id="citas-active"></div>
+                <div class="consultorio-active" id="consultorio-active"></div>
+                <div class="servicios-active" id="servicios-active"></div>
+                <div class="factura-active" id="factura-active"></div>
+                <div class="cliente-active" id="cliente-active"></div>
+                <div class="mascota-active" id="mascota-active"></div>
+                <div class="productos-active" id="productos-active"></div>
+                <div class="provedor-active" id="provedor-active"></div>
             </div>
-
-            <!-- ======================= Cards ================== -->
-            <div class="cardBox">
-                <div class="card">
-                    <div>
-                        <div class="numbers">1,504</div>
-                        <div class="cardName">Daily Views</div>
-                    </div>
-                    <div class="iconBx">
-                        <ion-icon name="eye-outline"></ion-icon>
-                    </div>
-                </div>
-                <div class="card">
-                    <div>
-                        <div class="numbers">80</div>
-                        <div class="cardName">Sales</div>
-                    </div>
-                    <div class="iconBx">
-                        <ion-icon name="cart-outline"></ion-icon>
-                    </div>
-                </div>
-                <div class="card">
-                    <div>
-                        <div class="numbers">284</div>
-                        <div class="cardName">Comments</div>
-                    </div>
-                    <div class="iconBx">
-                        <ion-icon name="chatbubbles-outline"></ion-icon>
-                    </div>
-                </div>
-                <div class="card">
-                    <div>
-                        <div class="numbers">$7,842</div>
-                        <div class="cardName">Earning</div>
-                    </div>
-                    <div class="iconBx">
-                        <ion-icon name="cash-outline"></ion-icon>
-                    </div>
-                </div>
-            </div>
-
-
 
         </div>
+
+        <!-- -->
     </div>
+    <script>
+
+    </script>
 
     <!-- =========== Scripts =========  -->
-    <script src="/public/javascript/main.js"></script>
 
-    <!-- ====== ionicons ======= -->
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="/public/javascript/main.js"></script>
 </body>

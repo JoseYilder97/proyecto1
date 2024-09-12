@@ -68,32 +68,74 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
-
-
 document.addEventListener('DOMContentLoaded', function() {
   const agendaLink = document.getElementById('agenda');
   const dashboardLink = document.getElementById('dashboard');
-  const agendaSeviciosDiv = document.querySelector('.agenda_sevicios');
-  const cardBox = document.querySelector('.cardBox');
-  const details = document.querySelector('.details');
+  const agendaSeviciosDiv = document.querySelector('.agenda_sevicios_active');
+  const informacion = document.querySelector('.informacion');
+
 
   agendaLink.addEventListener('click', function(e) {
     e.preventDefault();
-    mostrarContenido(agendaSeviciosDiv, cardBox, details);
+    mostrarContenido(agendaSeviciosDiv, informacion);
   });
 
   dashboardLink.addEventListener('click', function(e) {
     e.preventDefault();
-    mostrarContenido(cardBox, details, agendaSeviciosDiv);
+    mostrarContenido(informacion, agendaSeviciosDiv);
   });
 
-  function mostrarContenido(mostrar, ocultar1, ocultar2) {
+  function mostrarContenido(mostrar, ocultar1) {
     if (mostrar.style.display === 'none') {
       mostrar.style.display = 'block';
       ocultar1.style.display = 'none';
-      ocultar2.style.display = 'none';
     } else {
-      mostrar.style.display = 'none';
+      mostrar.style.display = 'block';
+      ocultar1.style.display = 'none';
     }
   }
 });
+$(document).ready(function() {
+    if (!$('#example1').hasClass('dataTable')) {
+        $('#example1').DataTable({
+      // Opciones de DataTable
+    });
+    }
+});
+
+//Grego este Codigo para que me haga la funcion de a href 
+function showSection(section) {
+  // Oculta todos los contenedores
+  document.querySelectorAll('.content-container > div').forEach(div => {
+      div.style.display = 'none';
+  });
+
+  // Muestra el contenedor correspondiente
+  document.getElementById(`${section}-active`).style.display = 'block';
+
+  // Carga el contenido desde PHP si no está cargado
+  if (!document.getElementById(`${section}-active`).innerHTML.trim()) {
+      fetch(`/app/views/dashboard/${section}.php`)
+          .then(response => response.text())
+          .then(data => {
+              document.getElementById(`${section}-active`).innerHTML = data;
+
+              // Incluye estilos adicionales si es necesario
+              if (section === 'usuarios') {
+                  const styleLink = document.createElement('link');
+                  styleLink.rel = 'stylesheet';
+                  styleLink.href = '/public/css/tabla.css';
+                  document.head.appendChild(styleLink);
+
+                  // Incluye scripts adicionales si es necesario
+                  const scriptTag = document.createElement('script');
+                  scriptTag.src = '/public/js/tabla.js';
+                  document.body.appendChild(scriptTag);
+              }
+          })
+          .catch(error => console.error('Error:', error));
+  }
+}
+
+
+showSection('tablero');

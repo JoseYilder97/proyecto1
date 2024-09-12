@@ -1,5 +1,5 @@
 <?php
-include("head.php");
+include("headers.php");
 include("../models/mensaje_error.php");
 ?>
 
@@ -8,17 +8,17 @@ include("../models/mensaje_error.php");
         <div class="logins">
             <h4 class="h4">Login</h4>
             <form action="../models/login_u.php" method="post">
-                <label for="nombre">
+                <label for="email">
                     <span class="material-symbols-outlined">
                         mail
                     </span>
-                    <input name="correo" type="text" placeholder="Ingrese su correo" class="input">
+                    <input name="email" type="text" placeholder="Ingrese su email" class="input">
                 </label>
-                <label for="contrasena">
+                <label for="password">
                     <span class="material-symbols-outlined">
                         lock
                     </span>
-                    <input type="password" id="contrasena" name="contrasena" value="" required placeholder="Ingrese su Password" class="input">
+                    <input type="password" id="password" name="password" value="" required placeholder="Ingrese su Password" class="input">
                 </label>
                 <div class="login">
                     <input type="submit" value="login">

@@ -23,7 +23,7 @@
         "html",
         "php"
     ],
-    "html-to-css-autocompletion.triggerCharacters": false,
+    "html-to-css-autocompletion.triggerCharacters": true,
     "html-to-css-autocompletion.autocompletionFilesScope": "multi-root",
     "html-to-css-autocompletion.folderNamesToBeIncluded": [
         ""

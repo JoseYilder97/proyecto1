@@ -9,7 +9,7 @@ include("head.php");
             <h3>Jose</h3>
             
         </div>
-        <div class="dropdown-menu" id="dropdownMenu">
+        <div class="dropdown-menus" id="dropdownMenu">
             <ul>
                 <li><a href="#"><span class="material-symbols-outlined">Account_Circle</span>Ver Perfil</a></li>
                 <li><a href="#"><span class="material-symbols-outlined">Settings</span>Configuración</a></li>
