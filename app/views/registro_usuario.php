@@ -2,12 +2,9 @@
 require("../controllers/conexion_db.php");
 ?>
 <?php
-  $sqlusarios = "SELECT u.id_usuario, u.email, u.activo, r.id_rol, r.nombre_rol
-  FROM usuarios u
-  LEFT JOIN roles r ON u.id_rol = r.id_rol
-  ORDER BY u.id_usuario ASC
-  ";
-  $usuario = $conexion->query($sqlusarios) ;
+$sqlusarios = "SELECT DISTINCT r.id_rol, r.nombre_rol FROM roles r ORDER BY r.id_rol ASC";
+$usuario = $conexion->query($sqlusarios);
+
 ?>
 <?php
 include("headers.php");
@@ -45,17 +42,30 @@ include("../models/mensaje_error.php");
                     <input type="password" id="password_hash" name="password_hash" value="" required placeholder="Confirma la Contraseña" class="input">
                 </label>
 
-                <label for="id_rol">
+                <label for="nombre_rol">
                     <span class="material-symbols-outlined">
                         person
                     </span>
-                    <input list="id-rol" id="id_rol" name="id_rol" value="" required placeholder="Roles" class="input">
-                    <datalist id="id-rol">
-                    <option value="">Selecionar...</option>
-                                        <?php while ($us = $usuario->fetch_assoc()) { ?>
-                                            <option value="<?php echo $us["nombre_rol"];?>"></option>
-                                            <?php  } ?>
-                                </datalist>
+                    <input list="roles" id="nombre_rol" name="nombre_rol" placeholder="Seleccionar rol" class="input" required>
+                    <datalist id="roles">
+                        <option value="">Seleccionar...</option>
+                        <?php while ($us = $usuario->fetch_assoc()) {
+                            if ($us['nombre_rol'] !== 'Administrador') {
+                        ?>
+                                <option value="<?php echo $us['nombre_rol']; ?>" data-id="<?php echo $us['id_rol']; ?>"></option>
+                        <?php
+                            }
+                        }
+                        ?>
+                    </datalist>
+                </label>
+
+
+                <input type="hidden" id="id_rol" name="id_rol" value="">
+
+
+
+                </datalist>
                 </label>
                 <div class="login">
                     <input type="submit" value="Registrar">
@@ -80,5 +90,4 @@ include("../models/mensaje_error.php");
     include("text_bienvenida.php");
     ?>
 </div>
-
-INSERT INTO `usuarios` (`id_usuario`, `username`, `email`, `password`, `password_hash`, `activo`, `id_rol`) VALUES (NULL, '', '', '', '', b'1', '')
+<script src="/public/javascript/frontend.js"></script>

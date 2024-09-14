@@ -1,6 +1,7 @@
 <?php
 include("../head.php");
 ?>
+
 <!-- Modal -->
 <div class="modal fade" id="nuevoModal" tabindex="-1" aria-labelledby="nuevoModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg  modal-dialog-centered">

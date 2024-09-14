@@ -1,5 +1,3 @@
-
-
 <?php
 include("../../views/modal/administracion/agregar_productos.php");
 ?>
@@ -248,7 +246,7 @@ include("../head_datatable.php");
   <!-- ================= New Customers ================ -->
   <div class="recentCustomers">
     <div class="cardHeader">
-      <h2>Recent Customers</h2>
+      <h2>Cliente Reciente</h2>
     </div>
 
     <table>
@@ -257,7 +255,7 @@ include("../head_datatable.php");
           <div class="imgBx"><img src="../../public/images/logos.png" alt=""></div>
         </td>
         <td>
-          <h4>David <br> <span>Italy</span></h4>
+          <h4>jose <br> <span>Clinte</span></h4>
         </td>
       </tr>
 
@@ -266,7 +264,7 @@ include("../head_datatable.php");
           <div class="imgBx"><img src="../../public/images/logos.png" alt=""></div>
         </td>
         <td>
-          <h4>Amit <br> <span>India</span></h4>
+          <h4>Juan <br> <span>Cliente</span></h4>
         </td>
       </tr>
 
@@ -275,7 +273,7 @@ include("../head_datatable.php");
           <div class="imgBx"><img src="../../public/images/logos.png" alt=""></div>
         </td>
         <td>
-          <h4>David <br> <span>Italy</span></h4>
+          <h4>jose <br> <span>Clinte</span></h4>
         </td>
       </tr>
 
@@ -284,7 +282,7 @@ include("../head_datatable.php");
           <div class="imgBx"><img src="../../public/images/logos.png" alt=""></div>
         </td>
         <td>
-          <h4>Amit <br> <span>India</span></h4>
+          <h4>Juan <br> <span>Cliente</span></h4>
         </td>
       </tr>
 
@@ -293,7 +291,7 @@ include("../head_datatable.php");
           <div class="imgBx"><img src="../../public/images/logos.png" alt=""></div>
         </td>
         <td>
-          <h4>David <br> <span>Italy</span></h4>
+          <h4>jose <br> <span>Clinte</span></h4>
         </td>
       </tr>
 
@@ -302,7 +300,7 @@ include("../head_datatable.php");
           <div class="imgBx"><img src="../../public/images/logos.png" alt=""></div>
         </td>
         <td>
-          <h4>Amit <br> <span>India</span></h4>
+          <h4>Juan <br> <span>Cliente</span></h4>
         </td>
       </tr>
 
@@ -311,7 +309,7 @@ include("../head_datatable.php");
           <div class="imgBx"><img src="../../public/images/logos.png" alt=""></div>
         </td>
         <td>
-          <h4>David <br> <span>Italy</span></h4>
+          <h4>jose <br> <span>Clinte</span></h4>
         </td>
       </tr>
 
@@ -320,7 +318,7 @@ include("../head_datatable.php");
           <div class="imgBx"><img src="../../public/images/logos.png" alt=""></div>
         </td>
         <td>
-          <h4>Amit <br> <span>India</span></h4>
+          <h4>Juan <br> <span>Cliente</span></h4>
         </td>
       </tr>
     </table>

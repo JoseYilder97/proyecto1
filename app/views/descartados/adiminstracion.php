@@ -7,18 +7,18 @@ include("../../views/head.php");
 
   <div class="recentOrders">
     <div class="cardHeader">
-    <h2>Lista de Usuarios</h2>
+      <h2>Lista de Usuarios</h2>
       <a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#nuevoModal"><span class="material-symbols-outlined">add</span>Añadir</a>
 
     </div>
-    
+
 
     <?php
     /* include("../../views/Dashboard/newData.php");  */
-/*     include("../../views/Dashboard/pacientes.php");  */
+    /*     include("../../views/Dashboard/pacientes.php");  */
 
     ?>
-    
+
     <?php
     include("../../views/modal/administracion/agregar.php");
 
@@ -30,7 +30,7 @@ include("../../views/head.php");
   <!-- ================= New Customers ================ -->
   <div class="recentCustomers">
     <div class="cardHeader">
-      <h2>Recent Customers</h2>
+      <h2>Cliente Reciente</h2>
     </div>
 
     <table>
@@ -39,7 +39,7 @@ include("../../views/head.php");
           <div class="imgBx"><img src="../../public/images/logos.png" alt=""></div>
         </td>
         <td>
-          <h4>David <br> <span>Italy</span></h4>
+          <h4>jose <br> <span>Clinte</span></h4>
         </td>
       </tr>
 
@@ -48,7 +48,7 @@ include("../../views/head.php");
           <div class="imgBx"><img src="../../public/images/logos.png" alt=""></div>
         </td>
         <td>
-          <h4>Amit <br> <span>India</span></h4>
+          <h4>Juan <br> <span>Cliente</span></h4>
         </td>
       </tr>
 
@@ -57,7 +57,7 @@ include("../../views/head.php");
           <div class="imgBx"><img src="../../public/images/logos.png" alt=""></div>
         </td>
         <td>
-          <h4>David <br> <span>Italy</span></h4>
+          <h4>jose <br> <span>Clinte</span></h4>
         </td>
       </tr>
 
@@ -66,7 +66,7 @@ include("../../views/head.php");
           <div class="imgBx"><img src="../../public/images/logos.png" alt=""></div>
         </td>
         <td>
-          <h4>Amit <br> <span>India</span></h4>
+          <h4>Juan <br> <span>Cliente</span></h4>
         </td>
       </tr>
 
@@ -75,7 +75,7 @@ include("../../views/head.php");
           <div class="imgBx"><img src="../../public/images/logos.png" alt=""></div>
         </td>
         <td>
-          <h4>David <br> <span>Italy</span></h4>
+          <h4>jose <br> <span>Clinte</span></h4>
         </td>
       </tr>
 
@@ -84,7 +84,7 @@ include("../../views/head.php");
           <div class="imgBx"><img src="../../public/images/logos.png" alt=""></div>
         </td>
         <td>
-          <h4>Amit <br> <span>India</span></h4>
+          <h4>Juan <br> <span>Cliente</span></h4>
         </td>
       </tr>
 
@@ -93,7 +93,7 @@ include("../../views/head.php");
           <div class="imgBx"><img src="../../public/images/logos.png" alt=""></div>
         </td>
         <td>
-          <h4>David <br> <span>Italy</span></h4>
+          <h4>jose <br> <span>Clinte</span></h4>
         </td>
       </tr>
 
@@ -102,7 +102,7 @@ include("../../views/head.php");
           <div class="imgBx"><img src="../../public/images/logos.png" alt=""></div>
         </td>
         <td>
-          <h4>Amit <br> <span>India</span></h4>
+          <h4>Juan <br> <span>Cliente</span></h4>
         </td>
       </tr>
     </table>

@@ -21,6 +21,7 @@ include("../head.php");
                                 <form action="insertar_proveedor.php" method="post">
                                     <div class="mb-3">
                                         <label for="nombre" class="form-label">Nombre</label>
+                                        <input type="text" class="form-control" id="nombre" required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="telefono" class="form-label">Teléfono</label>

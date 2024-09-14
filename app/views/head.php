@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" media="screen" href="/public/styles/styles_home.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="/public/styles/style.css" />
     <link rel="shortcut icon" href="/public/images/logos.png" type="image/x-icon">
     <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,11 +17,14 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.5/css/dataTables.dataTables.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" />
     <link rel="stylesheet" href="sweetalert2.min.css">
+    <!-- Estilos css para que no haga conflico con boostrap siempre de ultimo -->
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/styles/styles_frontend.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/styles/style.css" />
     <title>Happy Dogs</title>
 </head>
 
 <body>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
@@ -51,9 +52,9 @@
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
     <!-- js Local  -->
-    <script src="/public/javascript/fronten.js" async></script>
-    <script src="/public/javascript/index.js" async></script>
-    <script src="/public/javascript/mainDatatable.js" async></script>
+    <script src="/public/javascript/fronten.js"></script>
+    <script src="/public/javascript/index.js"></script>
+    <script src="/public/javascript/mainDatatable.js"></script>
 
     <!-- Js sweetalert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

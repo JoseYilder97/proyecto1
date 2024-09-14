@@ -1,5 +1,5 @@
 <?php
-include("head.php");
+include("headers.php");
 
 ?>
 <nav class="navbars">

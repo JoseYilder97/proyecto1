@@ -1,20 +1,14 @@
 <?php
-
+require("../controllers/conexion_db.php");
+?>
+<?php
 include_once("../models/sesion_ectiva.php");
 ?>
 <?php
-
 include("../models/mensaje_error.php");
-
-
 ?>
-
-
 <?php
 include("head.php");
-
-
-
 ?>
 
 <body class="body" id="body">
@@ -187,15 +181,28 @@ include("head.php");
                             dark_mode
                         </span>
                     </div> -->
-                    <div class="perfil-user">
-                        <div class="perfil_photo">
-                            <img src="/public/images//profile-icon.png" alt="dog" srcset="Perfil persona">
-                        </div>
-                        <h3>Jose Gilder</h3>
-                        <span class="material-symbols-outlined perfil-users">
-                            keyboard_arrow_down
-                        </span>
-                    </div>
+                    <?php
+
+// Comprobar si el usuario ha iniciado sesión
+if (isset($_SESSION['username'])) {
+    $username = $_SESSION['username'];
+} else {
+    // Si no esta autenticado, redirigir al formulario de inicio de sesión
+    header('Location: ../views/login_usuario.php');
+    exit();
+}
+?>
+
+<div class="perfil-user">
+    <div class="perfil_photo">
+        <img src="/public/images/profile-icon.png" alt="Perfil" srcset="Perfil persona">
+    </div>
+    <h3><?php echo htmlspecialchars($username); ?></h3>
+    <span class="material-symbols-outlined perfil-users">
+        keyboard_arrow_down
+    </span>
+</div>
+
                 </div>
             </div>
             <!-- ======================= perfil ================== -->
@@ -203,7 +210,7 @@ include("head.php");
                 <div class="profile-menu">
                     <div class="profile-icon" onclick="toggleMenu()">
                         <img src="/public/images//profile-icon.png" alt="Perfil">
-                        <h3>Jose</h3>
+                        <h3><?php echo htmlspecialchars($username); ?></h3>
                     </div>
                     <div class="dropdown-menus" id="dropdownMenu">
                         <ul>

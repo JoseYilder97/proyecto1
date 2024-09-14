@@ -1,6 +1,6 @@
 <?php
 
-include("head.php");
+include("headers.php");
 include("header.php");
 include("redes_social.php");
 ?>

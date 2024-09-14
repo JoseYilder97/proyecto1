@@ -1,7 +1,7 @@
 <?php
-    include("../../views/modal/administracion/agregar_mascota.php");
+include("../../views/modal/administracion/agregar_cliente.php");
 
-    ?>
+?>
 
 <?php
 include("../head.php");
@@ -9,44 +9,15 @@ include("../head_datatable.php");
 
 ?>
 
-<script>
-$(document).ready(function() {
-  var table = $('#example1').DataTable({
-    "responsive": true,
-    "lengthChange": true,
-    "autoWidth": false,
-    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
-    "language": {
-      "lengthMenu": "Mostrar _MENU_ registros por página",
-      "zeroRecords": "Ningún usuario encontrado",
-      "info": "Mostrando de _START_ a _END_ de un total de _TOTAL_ registros",
-      "infoEmpty": "Ningún usuario encontrado",
-      "infoFiltered": "(filtrados desde _MAX_ registros totales)",
-      "search": "Buscar:",
-      "loadingRecords": "Cargando...",
-      "paginate": {
-        "first": "Primero",
-        "last": "Último",
-        "next": "Siguiente",
-        "previous": "Anterior"
-      }
-    },
-    "lengthMenu": [5, 10, 25, 50, 100, 200, 500],
-    "pageLength ": 5 
-  });
 
-  table.buttons().container().appendTo('.col-md-6:eq(0)');
-});
-
-</script>
 
 <!-- ================ Order Details List ================= -->
 <div class="details">
   <div class="recentOrders">
     <div class="cardHeader">
       <h2>Listado de Pacientes</h2>
-      <h6>Deseas Exportar</h6> 
-      <a href="#" id="imprimirBtn" class="btn" data-bs-toggle="modal" data-bs-target="#imprimirModal">Agregar</a>
+      <h6>Deseas Exportar</h6>
+      <a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#nuevoModal"><span class="material-symbols-outlined">add</span>Nuevo Cita</a>
     </div>
 
     <div class="card-body">
@@ -277,7 +248,7 @@ $(document).ready(function() {
   <!-- ================= New Customers ================ -->
   <div class="recentCustomers">
     <div class="cardHeader">
-      <h2>Recent Customers</h2>
+      <h2>Cliente Reciente</h2>
     </div>
 
     <table>
@@ -286,7 +257,7 @@ $(document).ready(function() {
           <div class="imgBx"><img src="../../public/images/logos.png" alt=""></div>
         </td>
         <td>
-          <h4>David <br> <span>Italy</span></h4>
+          <h4>jose <br> <span>Clinte</span></h4>
         </td>
       </tr>
 
@@ -295,7 +266,7 @@ $(document).ready(function() {
           <div class="imgBx"><img src="../../public/images/logos.png" alt=""></div>
         </td>
         <td>
-          <h4>Amit <br> <span>India</span></h4>
+          <h4>Juan <br> <span>Cliente</span></h4>
         </td>
       </tr>
 
@@ -304,7 +275,7 @@ $(document).ready(function() {
           <div class="imgBx"><img src="../../public/images/logos.png" alt=""></div>
         </td>
         <td>
-          <h4>David <br> <span>Italy</span></h4>
+          <h4>jose <br> <span>Clinte</span></h4>
         </td>
       </tr>
 
@@ -313,7 +284,7 @@ $(document).ready(function() {
           <div class="imgBx"><img src="../../public/images/logos.png" alt=""></div>
         </td>
         <td>
-          <h4>Amit <br> <span>India</span></h4>
+          <h4>Juan <br> <span>Cliente</span></h4>
         </td>
       </tr>
 
@@ -322,7 +293,7 @@ $(document).ready(function() {
           <div class="imgBx"><img src="../../public/images/logos.png" alt=""></div>
         </td>
         <td>
-          <h4>David <br> <span>Italy</span></h4>
+          <h4>jose <br> <span>Clinte</span></h4>
         </td>
       </tr>
 
@@ -331,7 +302,7 @@ $(document).ready(function() {
           <div class="imgBx"><img src="../../public/images/logos.png" alt=""></div>
         </td>
         <td>
-          <h4>Amit <br> <span>India</span></h4>
+          <h4>Juan <br> <span>Cliente</span></h4>
         </td>
       </tr>
 
@@ -340,7 +311,7 @@ $(document).ready(function() {
           <div class="imgBx"><img src="../../public/images/logos.png" alt=""></div>
         </td>
         <td>
-          <h4>David <br> <span>Italy</span></h4>
+          <h4>jose <br> <span>Clinte</span></h4>
         </td>
       </tr>
 
@@ -349,9 +320,38 @@ $(document).ready(function() {
           <div class="imgBx"><img src="../../public/images/logos.png" alt=""></div>
         </td>
         <td>
-          <h4>Amit <br> <span>India</span></h4>
+          <h4>Juan <br> <span>Cliente</span></h4>
         </td>
       </tr>
     </table>
   </div>
 </div>
+<script>
+  $(document).ready(function() {
+    var table = $('#example1').DataTable({
+      "responsive": true,
+      "lengthChange": true,
+      "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+      "language": {
+        "lengthMenu": "Mostrar _MENU_ registros por página",
+        "zeroRecords": "Ningún usuario encontrado",
+        "info": "Mostrando de _START_ a _END_ de un total de _TOTAL_ registros",
+        "infoEmpty": "Ningún usuario encontrado",
+        "infoFiltered": "(filtrados desde _MAX_ registros totales)",
+        "search": "Buscar:",
+        "loadingRecords": "Cargando...",
+        "paginate": {
+          "first": "Primero",
+          "last": "Último",
+          "next": "Siguiente",
+          "previous": "Anterior"
+        }
+      },
+      "lengthMenu": [5, 10, 25, 50, 100, 200, 500],
+      "pageLength ": 5
+    });
+
+    table.buttons().container().appendTo('.col-md-6:eq(0)');
+  });
+</script>
